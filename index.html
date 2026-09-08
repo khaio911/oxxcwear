@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OXXC — Elite Athletic Identity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #D2143A;
+            --dark-red: #8B0000;
+            --bg-black: #0B0B0B;
+            --card-black: #141414;
+            --pure-white: #FFFFFF;
+            --off-white: #E5E5E5;
+            --gray: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--pure-white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(11, 11, 11, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(210, 20, 58, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--pure-white);
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--off-white);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-red);
+            color: var(--pure-white);
+            padding: 10px 24px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #B50F31;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        header.hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(11,11,11,0.7), rgba(11,11,11,0.9)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 8vw, 84px);
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero-content p {
+            font-size: clamp(14px, 2vw, 18px);
+            color: var(--off-white);
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        /* Collections / Narrative Grid */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 span {
+            color: var(--primary-red);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            margin-top: 10px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-black);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-red);
+        }
+
+        .card-img {
+            height: 380px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .card-content p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Brand Narrative Banner */
+        .narrative {
+            background: linear-gradient(135deg, var(--dark-red), var(--bg-black));
+            padding: 80px 10%;
+            text-align: center;
+            border-top: 2px solid var(--primary-red);
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .narrative h2 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .narrative p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--off-white);
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 60px 8% 30px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--gray);
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">OX<span>XC</span></div>
+        <ul class="nav-links">
+            <li><a href="#collection">Performance</a></li>
+            <li><a href="#narrative">Identity</a></li>
+            <li><a href="#gear">Gear</a></li>
+        </ul>
+        <a href="#collection" class="cta-btn">EXPLORE DROP</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Engineered for <span>Dominance</span></h1>
+            <p>High-end athletic execution merging raw training intensity with sophisticated visual identity.</p>
+            <a href="#collection" class="cta-btn">DISCOVER THE LINE</a>
+        </div>
+    </header>
+
+    <!-- Performance Collection Grid -->
+    <section id="collection">
+        <div class="section-title">
+            <h2>The <span>Red & White</span> Series</h2>
+            <p>Dynamic interactive training apparel built for ultimate form and function.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>Signature Leggings</h3>
+                    <p>Engineered stretch fabric featuring signature placement branding, tailored high-rise support, and uncompromised flexibility.</p>
+                    <a href="#" class="cta-btn" style="padding: 8px 16px; font-size: 11px;">VIEW DETAILS</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>Athletic Tank & Tops</h3>
+                    <p>Breathable, lightweight professional cuts designed for high-energy coaching sessions and peak explosive performance.</p>
+                    <a href="#" class="cta-btn" style="padding: 8px 16px; font-size: 11px;">VIEW DETAILS</a>
+                </div>
+            </div>
+
+            <div class="card" id="gear">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>Integrated Gym Gloves</h3>
+                    <p>Enhanced wrist stability and palm protection stamped with the distinct OXXC identity insignia for rigorous training days.</p>
+                    <a href="#" class="cta-btn" style="padding: 8px 16px; font-size: 11px;">VIEW DETAILS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Narrative Section -->
+    <section class="narrative" id="narrative">
+        <h2>THE OXXC STANDARD</h2>
+        <p>OXXC breaks away from ordinary studio imagery, anchoring its philosophy in authentic athletic training narratives. Every thread, stitch, and hue is carefully calibrated in a bold red and white palette to champion power, resilience, and unyielding discipline.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">OX<span>XC</span></div>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            &copy; 2026 OXXC Brand Identity. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
